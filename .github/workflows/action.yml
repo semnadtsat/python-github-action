@@ -1,0 +1,29 @@
+name: First Action
+
+on:
+  push:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Single line command
+        run: echo "Hello World"
+
+      - name: Multi-line command
+        run: |
+          pwd
+          ls -la
+      
+      - name: Docker command
+        run: |
+          docker -v
+          docker ps
+          docker images
